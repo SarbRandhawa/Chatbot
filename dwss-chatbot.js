@@ -51,7 +51,7 @@
       <div style="background: linear-gradient(135deg, #0056b3, #003366) !important; color: #ffffff !important; padding: 12px 16px; border-top-left-radius: 14px; border-top-right-radius: 14px; font-weight: bold; font-size: 15px; display: flex; justify-content: space-between; align-items: flex-start;">
         <div>
          Chatbot<br>
-          <span style="font-size: 12px; font-weight: normal; color: #ffffff !important; opacity: 0.9 !important;">ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ</span>
+          <span style="font-size: 14px; font-weight: bold; color: #ffffff !important; opacity: 0.9 !important;">ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ</span>
         </div>
         <button class="chat-close-btn" id="dwss-bot-close">✖</button>
       </div>

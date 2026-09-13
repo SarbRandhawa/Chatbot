@@ -1,5 +1,5 @@
 (function() {
-  // 1. Inject CSS Styles into Webpage Header with CSS Overrides
+  // 1. Inject CSS Styles
   const style = document.createElement('style');
   style.innerHTML = `
     .chatbot-widget-btn { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; z-index: 10000; transition: transform 0.3s ease; }
@@ -49,7 +49,7 @@
 
     <!-- Chat Box UI -->
     <div id="dwss-chat-box" style="display: none; position: fixed; bottom: 110px; right: 20px; width: 350px; height: 440px; background: #ffffff !important; border: 2px solid #0056b3; border-radius: 16px; box-shadow: 0px 10px 30px rgba(0,0,0,0.3); z-index: 10001; overflow: hidden;">
-      <div style="background: linear-gradient(135deg, #0056b3, #003366) !important; color: #ffffff !important; padding: 12px 16px; border-top-left-radius: 14px; border-top-right-radius: 14px; font-weight: bold; font-size: 15px; display: flex; justify-content: space-between; align-align: flex-start;">
+      <div style="background: linear-gradient(135deg, #0056b3, #003366) !important; color: #ffffff !important; padding: 12px 16px; border-top-left-radius: 14px; border-top-right-radius: 14px; font-weight: bold; font-size: 15px; display: flex; justify-content: space-between; align-items: flex-start;">
         <div>
           AI Assistant<br>
           <span style="font-size: 12px; font-weight: normal; color: #ffffff !important; opacity: 0.9 !important;">ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ</span>
@@ -77,29 +77,20 @@
     box.style.display = box.style.display === "none" ? "block" : "none";
   }
 
-  // Chat reset and toggle function
-  function resetAndToggleChat() {
-    const isVisible = shadowHost.style.display === 'block';
+  // Close ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਨ ਨਾਲ ਚੈਟ ਬੋਕਸ ਬੰਦ ਹੋਵੇਗਾ ਅਤੇ ਰੀਸੈੱਟ (ਰਿਫ੍ਰੈਸ਼) ਹੋ ਜਾਵੇਗਾ
+  function resetAndCloseChat() {
+    var box = document.getElementById("dwss-chat-box");
+    box.style.display = "none";
 
-    if (isVisible) {
-      // ਜਦੋਂ ਚੈਟਬੌਟ ਬੰਦ ਹੋਵੇਗਾ, ਤਾਂ ਇਸਨੂੰ ਰਿਫ੍ਰੈਸ਼ (Reset) ਕੀਤਾ ਜਾਵੇਗਾ
-      shadowHost.style.display = 'none';
-      
-      // 1. ਮੈਸੇਜ ਹਿਸਟਰੀ ਸਾਫ਼ ਕਰਕੇ Main Menu ਮੁੜ ਲੋਡ ਕਰੋ
-      const chatBox = shadowRoot.getElementById("chat-messages");
-      chatBox.innerHTML = `
-        <div class="msg-card">
-          <b>AI Assistant:</b>\n\n<b>ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ, ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ ਦੇ Chat bot ਵਿਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।</b>\n\nਵਿਭਾਗ ਦੀਆਂ ਹੇਠ ਲਿਖੀਆਂ services ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ:\n\n1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ\n2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ\n3. ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼) ਲਈ ਅਪਲਾਈ ਕਰਨਾ\n\n<b>Press a number:</b>
-        </div>
-      `;
+    // 1. ਮੈਸੇਜ ਹਿਸਟਰੀ ਸਾਫ਼ ਕਰਕੇ Main Menu ਮੁੜ ਲੋਡ ਕਰੋ
+    const chatBox = document.getElementById("chat-messages");
+    chatBox.innerHTML = `
+      <div style="background: #ffffff !important; color: #000000 !important; padding: 12px; border-radius: 10px; line-height: 1.5; margin: 0; border: 1px solid #d1d5db; box-shadow: 0px 2px 4px rgba(0,0,0,0.08); font-weight: normal;"><b>AI Assistant:</b>\n\n<b>ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ, ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ ਦੇ Chat bot ਵਿਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।</b>\n\nਵਿਭਾਗ ਦੀਆਂ ਹੇਠ ਲਿਖੀਆਂ services ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ:\n\n1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ\n2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ\n3. ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼) ਲਈ ਅਪਲਾਈ ਕਰਨਾ\n\n<b>Press a number:</b></div>
+    `;
 
-      // 2. ਇਨਪੁਟ ਬਾਕਸ ਖਾਲੀ ਕਰੋ
-      const input = shadowRoot.getElementById("user-input");
-      if (input) input.value = "";
-    } else {
-      // ਜਦੋਂ ਚੈਟਬੌਟ ਖੋਲ੍ਹਿਆ ਜਾਵੇਗਾ
-      shadowHost.style.display = 'block';
-    }
+    // 2. ਇਨਪੁਟ ਬਾਕਸ ਖਾਲੀ ਕਰੋ
+    const input = document.getElementById("user-input");
+    if (input) input.value = "";
   }
 
   function getMainMenu() {
@@ -148,10 +139,9 @@
     chatBox.scrollTop = chatBox.scrollHeight;
   }
 
-  // Event Listeners
-  widgetBtn.addEventListener("click", toggleChat);
+  // Event Listeners (Fixed Target Elements)
   document.getElementById("dwss-bot-launcher").addEventListener("click", toggleChat);
- shadowRoot.getElementById("dwss-bot-close").addEventListener("click", resetAndToggleChat); // Close ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਨ 'ਤੇ ਰਿਫ੍ਰੈਸ਼ ਹੋ ਜਾਵੇਗਾ
+  document.getElementById("dwss-bot-close").addEventListener("click", resetAndCloseChat);
   document.getElementById("dwss-send-btn").addEventListener("click", processMessage);
   document.getElementById("user-input").addEventListener("keypress", function(e) {
     if (e.key === 'Enter') processMessage();

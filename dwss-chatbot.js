@@ -14,7 +14,6 @@
     #user-input::placeholder { color: #555555 !important; opacity: 1 !important; }
     .send-text-btn { background: #0056b3 !important; color: #ffffff !important; border: none; border-radius: 20px; padding: 6px 16px; font-weight: bold; cursor: pointer; opacity: 1 !important; }
     
-    /* Strict Chatbot Container Reset */
     #dwss-chat-box * {
       box-sizing: border-box;
       opacity: 1 !important;
@@ -74,21 +73,22 @@
 
   function toggleChat() {
     var box = document.getElementById("dwss-chat-box");
-    box.style.display = box.style.display === "none" ? "block" : "none";
+    if (box) {
+      box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
+    }
   }
 
-  // Close ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਨ ਨਾਲ ਚੈਟ ਬੋਕਸ ਬੰਦ ਹੋਵੇਗਾ ਅਤੇ ਰੀਸੈੱਟ (ਰਿਫ੍ਰੈਸ਼) ਹੋ ਜਾਵੇਗਾ
   function resetAndCloseChat() {
     var box = document.getElementById("dwss-chat-box");
-    box.style.display = "none";
+    if (box) box.style.display = "none";
 
-    // 1. ਮੈਸੇਜ ਹਿਸਟਰੀ ਸਾਫ਼ ਕਰਕੇ Main Menu ਮੁੜ ਲੋਡ ਕਰੋ
     const chatBox = document.getElementById("chat-messages");
-    chatBox.innerHTML = `
-      <div style="background: #ffffff !important; color: #000000 !important; padding: 12px; border-radius: 10px; line-height: 1.5; margin: 0; border: 1px solid #d1d5db; box-shadow: 0px 2px 4px rgba(0,0,0,0.08); font-weight: normal;"><b>AI Assistant:</b>\n\n<b>ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ, ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ ਦੇ Chat bot ਵਿਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।</b>\n\nਵਿਭਾਗ ਦੀਆਂ ਹੇਠ ਲਿਖੀਆਂ services ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ:\n\n1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ\n2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ\n3. ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼) ਲਈ ਅਪਲਾਈ ਕਰਨਾ\n\n<b>Press a number:</b></div>
-    `;
+    if (chatBox) {
+      chatBox.innerHTML = `
+        <div style="background: #ffffff !important; color: #000000 !important; padding: 12px; border-radius: 10px; line-height: 1.5; margin: 0; border: 1px solid #d1d5db; box-shadow: 0px 2px 4px rgba(0,0,0,0.08); font-weight: normal;"><b>AI Assistant:</b>\n\n<b>ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ, ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ ਦੇ Chat bot ਵਿਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।</b>\n\nਵਿਭਾਗ ਦੀਆਂ ਹੇਠ ਲਿਖੀਆਂ services ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ:\n\n1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ\n2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ\n3. ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼) ਲਈ ਅਪਲਾਈ ਕਰਨਾ\n\n<b>Press a number:</b></div>
+      `;
+    }
 
-    // 2. ਇਨਪੁਟ ਬਾਕਸ ਖਾਲੀ ਕਰੋ
     const input = document.getElementById("user-input");
     if (input) input.value = "";
   }
@@ -115,10 +115,13 @@
 
   function processMessage() {
     let input = document.getElementById("user-input");
+    if (!input) return;
     let msg = input.value.trim().toLowerCase();
     if (!msg) return;
 
     let chatBox = document.getElementById("chat-messages");
+    if (!chatBox) return;
+
     chatBox.innerHTML += `<div style="background: #0056b3 !important; color: #ffffff !important; padding: 8px 12px; border-radius: 8px; text-align: right; margin: 6px 0; font-weight: bold;"><b>ਤੁਸੀਂ:</b> ${input.value}</div>`;
     input.value = "";
 
@@ -139,11 +142,20 @@
     chatBox.scrollTop = chatBox.scrollHeight;
   }
 
-  // Event Listeners (Fixed Target Elements)
-  document.getElementById("dwss-bot-launcher").addEventListener("click", toggleChat);
-  document.getElementById("dwss-bot-close").addEventListener("click", resetAndCloseChat);
-  document.getElementById("dwss-send-btn").addEventListener("click", processMessage);
-  document.getElementById("user-input").addEventListener("keypress", function(e) {
-    if (e.key === 'Enter') processMessage();
-  });
+  // Safe Event Listeners Binding
+  const launcherBtn = document.getElementById("dwss-bot-launcher");
+  if (launcherBtn) launcherBtn.addEventListener("click", toggleChat);
+
+  const closeBtn = document.getElementById("dwss-bot-close");
+  if (closeBtn) closeBtn.addEventListener("click", resetAndCloseChat);
+
+  const sendBtn = document.getElementById("dwss-send-btn");
+  if (sendBtn) sendBtn.addEventListener("click", processMessage);
+
+  const inputField = document.getElementById("user-input");
+  if (inputField) {
+    inputField.addEventListener("keypress", function(e) {
+      if (e.key === 'Enter') processMessage();
+    });
+  }
 })();

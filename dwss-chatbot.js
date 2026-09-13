@@ -33,7 +33,7 @@
     <div id="dwss-chat-box" style="display: none; position: fixed; bottom: 110px; right: 20px; width: 350px; height: 420px; background: white; border: 1px solid #ccc; border-radius: 16px; box-shadow: 0px 5px 20px rgba(0,0,0,0.15); z-index: 10001; overflow: hidden;">
       <div style="background: #0056b3; color: white; padding: 10px 14px; border-top-left-radius: 16px; border-top-right-radius: 16px; font-weight: bold; font-size: 15px; display: flex; justify-content: space-between; align-items: flex-start;">
         <div>
-          AI Assistant<br>
+         Chatbot<br>
           <span style="font-size: 12px; font-weight: normal;">ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ</span>
         </div>
         <button class="chat-close-btn" id="dwss-bot-close">✖</button>

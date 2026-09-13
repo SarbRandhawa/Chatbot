@@ -85,7 +85,7 @@
     if (!msg) return;
 
     let chatBox = document.getElementById("chat-messages");
-    chatBox.innerHTML += `<p style="background: #d1e7dd; padding: 8px 12px; border-radius: 8px; text-align: right; margin: 6px 0;"><b>ਤੁਸੀਂ:</b> ${input.value}</p>`;
+    chatBox.innerHTML += `<p style="background: #d1e7dd; padding: 8px 12px; border-radius: 8px; text-align: right; margin: 6px 0;"><b>You:</b> ${input.value}</p>`;
     input.value = "";
 
     let reply = "";

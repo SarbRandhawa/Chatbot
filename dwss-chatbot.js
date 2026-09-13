@@ -39,7 +39,7 @@
         <button class="chat-close-btn" id="dwss-bot-close">✖</button>
       </div>
       <div id="chat-messages" style="height: 290px; background: #3a77b4; padding: 10px; overflow-y: auto; font-size: 14px; white-space: pre-line;">
-        <p style="background: #e9ecef; padding: 10px; border-radius: 8px; line-height: 1.5; margin: 0;"><b>AI Assistant:</b>\n\n<b>ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ, ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ ਦੇ Chat bot ਵਿਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।</b>\n\nਵਿਭਾਗ ਦੀਆਂ ਹੇਠ ਲਿਖੀਆਂ services ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ:\n\n1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ\n2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ\n3. ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼) ਲਈ ਅਪਲਾਈ ਕਰਨਾ\n\n<b>Press a number:</b></p>
+        <p style="background: #e9ecef; padding: 10px; border-radius: 8px; line-height: 1.5; margin: 0;"><b>Chatbot:</b>\n\n<b>ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ, ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ ਦੇ Chat bot ਵਿਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।</b>\n\nਵਿਭਾਗ ਦੀਆਂ ਹੇਠ ਲਿਖੀਆਂ services ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ:\n\n1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ\n2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ\n3. ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼) ਲਈ ਅਪਲਾਈ ਕਰਨਾ\n\n<b>Press a number:</b></p>
       </div>
       <div class="chat-input-wrapper">
         <div class="chat-input-container">

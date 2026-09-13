@@ -77,6 +77,31 @@
     box.style.display = box.style.display === "none" ? "block" : "none";
   }
 
+  // Chat reset and toggle function
+  function resetAndToggleChat() {
+    const isVisible = shadowHost.style.display === 'block';
+
+    if (isVisible) {
+      // ਜਦੋਂ ਚੈਟਬੌਟ ਬੰਦ ਹੋਵੇਗਾ, ਤਾਂ ਇਸਨੂੰ ਰਿਫ੍ਰੈਸ਼ (Reset) ਕੀਤਾ ਜਾਵੇਗਾ
+      shadowHost.style.display = 'none';
+      
+      // 1. ਮੈਸੇਜ ਹਿਸਟਰੀ ਸਾਫ਼ ਕਰਕੇ Main Menu ਮੁੜ ਲੋਡ ਕਰੋ
+      const chatBox = shadowRoot.getElementById("chat-messages");
+      chatBox.innerHTML = `
+        <div class="msg-card">
+          <b>AI Assistant:</b>\n\n<b>ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ, ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ ਦੇ Chat bot ਵਿਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।</b>\n\nਵਿਭਾਗ ਦੀਆਂ ਹੇਠ ਲਿਖੀਆਂ services ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ:\n\n1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ\n2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ\n3. ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼) ਲਈ ਅਪਲਾਈ ਕਰਨਾ\n\n<b>Press a number:</b>
+        </div>
+      `;
+
+      // 2. ਇਨਪੁਟ ਬਾਕਸ ਖਾਲੀ ਕਰੋ
+      const input = shadowRoot.getElementById("user-input");
+      if (input) input.value = "";
+    } else {
+      // ਜਦੋਂ ਚੈਟਬੌਟ ਖੋਲ੍ਹਿਆ ਜਾਵੇਗਾ
+      shadowHost.style.display = 'block';
+    }
+  }
+
   function getMainMenu() {
     return `<b>ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ, ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ ਦੇ Chat bot ਵਿਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।</b>\n\nਵਿਭਾਗ ਦੀਆਂ ਹੇਠ ਲਿਖੀਆਂ services ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ:\n\n1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ\n2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ\n3. ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼) ਲਈ ਅਪਲਾਈ ਕਰਨਾ\n\n<b>Press a number:</b>`;
   }
@@ -124,8 +149,9 @@
   }
 
   // Event Listeners
+  widgetBtn.addEventListener("click", toggleChat);
   document.getElementById("dwss-bot-launcher").addEventListener("click", toggleChat);
-  document.getElementById("dwss-bot-close").addEventListener("click", toggleChat);
+ shadowRoot.getElementById("dwss-bot-close").addEventListener("click", resetAndToggleChat); // Close ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਨ 'ਤੇ ਰਿਫ੍ਰੈਸ਼ ਹੋ ਜਾਵੇਗਾ
   document.getElementById("dwss-send-btn").addEventListener("click", processMessage);
   document.getElementById("user-input").addEventListener("keypress", function(e) {
     if (e.key === 'Enter') processMessage();

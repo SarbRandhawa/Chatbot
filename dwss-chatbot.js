@@ -7,11 +7,21 @@
     .chatbot-label { background: #ffffff; color: #0056b3; font-weight: bold; font-size: 12px; padding: 6px 14px; border-radius: 20px; box-shadow: 0px 2px 8px rgba(0,0,0,0.15); margin-top: 8px; border: 1px solid #0056b3; white-space: nowrap; text-align: center; }
     .chatbot-widget-btn:hover { transform: translateY(-3px); }
     .chat-close-btn { background: transparent; border: none; color: white; font-size: 18px; font-weight: bold; cursor: pointer; }
-    .chat-input-wrapper { padding: 12px; background: #ffffff; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; }
-    .chat-input-container { display: flex; align-items: center; background: #fff; border: 1px solid #ccc; border-radius: 30px; padding: 3px 4px 3px 15px; }
-    .chat-input-container:focus-within { border-color: #0056b3; }
-    #user-input { flex: 1; border: none; background: transparent; font-size: 14px; outline: none; padding: 5px 0; }
-    .send-text-btn { background: #0056b3; color: white; border: none; border-radius: 20px; padding: 6px 16px; font-weight: bold; cursor: pointer; }
+    .chat-input-wrapper { padding: 12px; background: #ffffff !important; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; }
+    .chat-input-container { display: flex; align-items: center; background: #fff !important; border: 1px solid #0056b3; border-radius: 30px; padding: 3px 4px 3px 15px; }
+    .chat-input-container:focus-within { border-color: #003366; }
+    #user-input { flex: 1; border: none; background: transparent !important; color: #111827 !important; font-size: 14px; outline: none; padding: 5px 0; }
+    #user-input::placeholder { color: #6b7280 !important; }
+    .send-text-btn { background: #0056b3; color: white !important; border: none; border-radius: 20px; padding: 6px 16px; font-weight: bold; cursor: pointer; }
+    
+    /* Global Reset inside Chatbot to override website default styles */
+    #chat-messages div {
+      font-family: inherit;
+    }
+    #chat-messages a {
+      color: #0056b3 !important;
+      text-decoration: underline !important;
+    }
   `;
   document.head.appendChild(style);
 
@@ -30,17 +40,17 @@
     </div>
 
     <!-- Chat Box UI -->
-    <div id="dwss-chat-box" style="display: none; position: fixed; bottom: 110px; right: 20px; width: 350px; height: 420px; background: white; border: 1px solid #ccc; border-radius: 16px; box-shadow: 0px 5px 20px rgba(0,0,0,0.15); z-index: 10001; overflow: hidden;">
-      <div style="background: #0056b3; color: white; padding: 10px 14px; border-top-left-radius: 16px; border-top-right-radius: 16px; font-weight: bold; font-size: 15px; display: flex; justify-content: space-between; align-items: flex-start;">
+    <div id="dwss-chat-box" style="display: none; position: fixed; bottom: 110px; right: 20px; width: 350px; height: 440px; background: #ffffff !important; border: 1px solid #cbd5e1; border-radius: 16px; box-shadow: 0px 10px 25px rgba(0,0,0,0.2); z-index: 10001; overflow: hidden;">
+      <div style="background: linear-gradient(135deg, #0056b3, #003366); color: #ffffff !important; padding: 12px 16px; border-top-left-radius: 16px; border-top-right-radius: 16px; font-weight: bold; font-size: 15px; display: flex; justify-content: space-between; align-items: flex-start;">
         <div>
-          Chatbot<br>
-          <span style="font-size: 12px; font-weight: normal;">ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ</span>
+          AI Assistant<br>
+          <span style="font-size: 12px; font-weight: normal; color: #e2e8f0 !important;">ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ</span>
         </div>
         <button class="chat-close-btn" id="dwss-bot-close">✖</button>
       </div>
-    <div id="chat-messages" style="height: 290px; background: #2b5d8f; padding: 10px; overflow-y: auto; font-size: 14px; white-space: pre-line;">
-  <p style="background: #ffffff; color: #1a1a1a; padding: 12px; border-radius: 8px; line-height: 1.5; margin: 0; box-shadow: 0px 2px 5px rgba(0,0,0,0.1);"><b>AI Assistant:</b>\n\n<b>ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ, ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ ਦੇ Chat bot ਵਿਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।</b>\n\nਵਿਭਾਗ ਦੀਆਂ ਹੇਠ ਲਿਖੀਆਂ services ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ:\n\n1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ\n2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ\n3. ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼) ਲਈ ਅਪਲਾਈ ਕਰਨਾ\n\n<b>Press a number:</b></p>
-</div>
+      <div id="chat-messages" style="height: 300px; background: #f3f4f6 !important; padding: 12px; overflow-y: auto; font-size: 14px; white-space: pre-line;">
+        <div style="background: #ffffff !important; color: #111827 !important; padding: 12px; border-radius: 10px; line-height: 1.5; margin: 0; border: 1px solid #e5e7eb; box-shadow: 0px 2px 4px rgba(0,0,0,0.05);"><b>AI Assistant:</b>\n\n<b>ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ, ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ ਦੇ Chat bot ਵਿਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।</b>\n\nਵਿਭਾਗ ਦੀਆਂ ਹੇਠ ਲਿਖੀਆਂ services ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ:\n\n1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ\n2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ\n3. ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼) ਲਈ ਅਪਲਾਈ ਕਰਨਾ\n\n<b>Press a number:</b></div>
+      </div>
       <div class="chat-input-wrapper">
         <div class="chat-input-container">
           <input type="text" id="user-input" placeholder="ਨੰਬਰ 1, 2, 3 ਜਾਂ 0 ਲਿਖੋ..." />
@@ -68,15 +78,15 @@
   }
 
   function getComplaintInfo() {
-    return `<b>ਸਰਵਿਸ 2: ਸ਼ਿਕਾਇਤ ਦਰਜ ਕਰਵਾਉਣਾ (Grievance Redressal)</b>\n\n<b>2.1 ਵੇਰਵਾ:</b> ਲੀਕੇਜ, ਗੰਦੇ ਪਾਣੀ ਜਾਂ ਬਿੱਲ ਸਬੰਧੀ ਸ਼ਿਕਾਇਤ।\n\n<b>2.2 ਹੈਲਪਲਾਈਨ ਨੰਬਰ:</b> 1800-180-2468\n\n<b>2.3 ਪ੍ਰੋਸੈਸ:</b> ਟੋਲ-ਫ੍ਰੀ ਨੰਬਰ 'ਤੇ ਕਾਲ ਕਰੋ ਜਾਂ ਵਿਭਾਗ ਦੀ ਵੈਬਸਾਈਟ <a href="https://dwss.punjab.gov.in/" target="_blank" style="color: #0056b3; text-decoration: underline;">https://dwss.punjab.gov.in/</a> 'ਤੇ ਕੰਪਲੇਂਟ ਦਰਜ਼ ਕਰਵਾਓ।` + RETURN_FOOTER;
+    return `<b>ਸਰਵਿਸ 2: ਸ਼ਿਕਾਇਤ ਦਰਜ ਕਰਵਾਉਣਾ (Grievance Redressal)</b>\n\n<b>2.1 ਵੇਰਵਾ:</b> ਲੀਕੇਜ, ਗੰਦੇ ਪਾਣੀ ਜਾਂ ਬਿੱਲ ਸਬੰਧੀ ਸ਼ਿਕਾਇਤ।\n\n<b>2.2 ਹੈਲਪਲਾਈਨ ਨੰਬਰ:</b> 1800-180-2468\n\n<b>2.3 ਪ੍ਰੋਸੈਸ:</b> ਟੋਲ-ਫ੍ਰੀ ਨੰਬਰ 'ਤੇ ਕਾਲ ਕਰੋ ਜਾਂ ਵਿਭਾਗ ਦੀ ਵੈਬਸਾਈਟ <a href="https://dwss.punjab.gov.in/" target="_blank">https://dwss.punjab.gov.in/</a> 'ਤੇ ਕੰਪਲੇਂਟ ਦਰਜ਼ ਕਰਵਾਓ।` + RETURN_FOOTER;
   }
 
   function getToiletAppInfo() {
-    return `<b>ਸਰਵਿਸ 3: ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼/ਪਖ਼ਾਨਾ) ਲਈ ਵਿੱਤੀ ਸਹਾਇਤਾ</b>\n\n<b>3.1 ਵੇਰਵਾ:</b> ਘਰ ਵਿਚ ਲੈਟਰੀਨ ਬਨਾਉਣ ਲਈ 15000 ਰੁਪਏ ਦੀ ਵਿੱਤੀ ਸਹਾਇਤਾ ਦਿੱਤੀ ਜਾਂਦੀ ਹੈ।\n\n<b>3.2 ਆਨ-ਲਾਈਨ ਅਪਲਾਈ ਲਿੰਕ:</b>\n<a href="https://sbm.gov.in/sbm_dbt/secure/login.aspx" target="_blank" style="color: #0056b3; text-decoration: underline;">https://sbm.gov.in/sbm_dbt/secure/login.aspx</a>` + RETURN_FOOTER;
+    return `<b>ਸਰਵਿਸ 3: ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼/ਪਖ਼ਾਨਾ) ਲਈ ਵਿੱਤੀ ਸਹਾਇਤਾ</b>\n\n<b>3.1 ਵੇਰਵਾ:</b> ਘਰ ਵਿਚ ਲੈਟਰੀਨ ਬਨਾਉਣ ਲਈ 15000 ਰੁਪਏ ਦੀ ਵਿੱਤੀ ਸਹਾਇਤਾ ਦਿੱਤੀ ਜਾਂਦੀ ਹੈ।\n\n<b>3.2 ਆਨ-ਲਾਈਨ ਅਪਲਾਈ ਲਿੰਕ:</b>\n<a href="https://sbm.gov.in/sbm_dbt/secure/login.aspx" target="_blank">https://sbm.gov.in/sbm_dbt/secure/login.aspx</a>` + RETURN_FOOTER;
   }
 
   function getInvalidOptionMsg() {
-    return `<span style="color: red; font-weight: bold;">ਗਲਤ ਚੋਣ! ਕਿਰਪਾ ਕਰਕੇ ਹੇਠਾਂ ਦਿੱਤੇ ਨੰਬਰਾਂ ਵਿੱਚੋਂ ਇੱਕ ਚੁਣੋ:</span>\n\n1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ\n2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ\n3. ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼) ਲਈ ਅਪਲਾਈ ਕਰਨਾ\n0. Main Menu`;
+    return `<span style="color: #dc2626 !important; font-weight: bold;">ਗਲਤ ਚੋਣ! ਕਿਰਪਾ ਕਰਕੇ ਹੇਠਾਂ ਦਿੱਤੇ ਨੰਬਰਾਂ ਵਿੱਚੋਂ ਇੱਕ ਚੁਣੋ:</span>\n\n1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ\n2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ\n3. ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼) ਲਈ ਅਪਲਾਈ ਕਰਨਾ\n0. Main Menu`;
   }
 
   function processMessage() {
@@ -85,7 +95,8 @@
     if (!msg) return;
 
     let chatBox = document.getElementById("chat-messages");
-    chatBox.innerHTML += `<p style="background: #ffffff; color: #1a1a1a; padding: 10px; border-radius: 8px; margin: 6px 0; box-shadow: 0px 2px 5px rgba(0,0,0,0.1);"><b>AI Assistant:</b>\n${reply}</p>`;
+    chatBox.innerHTML += `<div style="background: #e0f2fe !important; color: #0369a1 !important; padding: 8px 12px; border-radius: 8px; text-align: right; margin: 6px 0; border: 1px solid #bae6fd;"><b>ਤੁਸੀਂ:</b> ${input.value}</div>`;
+    input.value = "";
 
     let reply = "";
     if (["0", "hi", "hello", "hey", "start", "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ"].includes(msg) || msg.includes("menu")) {
@@ -100,7 +111,7 @@
       reply = getInvalidOptionMsg();
     }
 
-    chatBox.innerHTML += `<p style="background: #e9ecef; padding: 10px; border-radius: 8px; margin: 6px 0;"><b>AI Assistant:</b>\n${reply}</p>`;
+    chatBox.innerHTML += `<div style="background: #ffffff !important; color: #111827 !important; padding: 10px; border-radius: 8px; margin: 6px 0; border: 1px solid #e5e7eb; box-shadow: 0px 2px 4px rgba(0,0,0,0.05);"><b>AI Assistant:</b>\n${reply}</div>`;
     chatBox.scrollTop = chatBox.scrollHeight;
   }
 

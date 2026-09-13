@@ -38,9 +38,9 @@
         </div>
         <button class="chat-close-btn" id="dwss-bot-close">✖</button>
       </div>
-      <div id="chat-messages" style="height: 290px; background: #3a77b4; padding: 10px; overflow-y: auto; font-size: 14px; white-space: pre-line;">
-        <p style="background: #e9ecef; padding: 10px; border-radius: 8px; line-height: 1.5; margin: 0;"><b>Chatbot:</b>\n\n<b>ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ, ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ ਦੇ Chat bot ਵਿਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।</b>\n\nਵਿਭਾਗ ਦੀਆਂ ਹੇਠ ਲਿਖੀਆਂ services ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ:\n\n1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ\n2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ\n3. ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼) ਲਈ ਅਪਲਾਈ ਕਰਨਾ\n\n<b>Press a number:</b></p>
-      </div>
+    <div id="chat-messages" style="height: 290px; background: #2b5d8f; padding: 10px; overflow-y: auto; font-size: 14px; white-space: pre-line;">
+  <p style="background: #ffffff; color: #1a1a1a; padding: 12px; border-radius: 8px; line-height: 1.5; margin: 0; box-shadow: 0px 2px 5px rgba(0,0,0,0.1);"><b>AI Assistant:</b>\n\n<b>ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ, ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ ਦੇ Chat bot ਵਿਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।</b>\n\nਵਿਭਾਗ ਦੀਆਂ ਹੇਠ ਲਿਖੀਆਂ services ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ:\n\n1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ\n2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ\n3. ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼) ਲਈ ਅਪਲਾਈ ਕਰਨਾ\n\n<b>Press a number:</b></p>
+</div>
       <div class="chat-input-wrapper">
         <div class="chat-input-container">
           <input type="text" id="user-input" placeholder="ਨੰਬਰ 1, 2, 3 ਜਾਂ 0 ਲਿਖੋ..." />
@@ -85,8 +85,7 @@
     if (!msg) return;
 
     let chatBox = document.getElementById("chat-messages");
-    chatBox.innerHTML += `<p style="background: #d1e7dd; padding: 8px 12px; border-radius: 8px; text-align: right; margin: 6px 0;"><b>You:</b> ${input.value}</p>`;
-    input.value = "";
+    chatBox.innerHTML += `<p style="background: #ffffff; color: #1a1a1a; padding: 10px; border-radius: 8px; margin: 6px 0; box-shadow: 0px 2px 5px rgba(0,0,0,0.1);"><b>AI Assistant:</b>\n${reply}</p>`;
 
     let reply = "";
     if (["0", "hi", "hello", "hey", "start", "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ"].includes(msg) || msg.includes("menu")) {

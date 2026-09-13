@@ -1,26 +1,34 @@
 (function() {
-  // 1. Inject CSS Styles into Webpage Header
+  // 1. Inject CSS Styles into Webpage Header with CSS Overrides
   const style = document.createElement('style');
   style.innerHTML = `
     .chatbot-widget-btn { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; z-index: 10000; transition: transform 0.3s ease; }
     .chatbot-avatar { width: 65px; height: 65px; background: linear-gradient(135deg, #0056b3, #003366); border-radius: 50%; box-shadow: 0px 4px 15px rgba(0,0,0,0.25); display: flex; justify-content: center; align-items: center; border: 3px solid #ffffff; outline: 2px solid #0056b3; margin: 0 auto; }
-    .chatbot-label { background: #ffffff; color: #0056b3; font-weight: bold; font-size: 12px; padding: 6px 14px; border-radius: 20px; box-shadow: 0px 2px 8px rgba(0,0,0,0.15); margin-top: 8px; border: 1px solid #0056b3; white-space: nowrap; text-align: center; }
+    .chatbot-label { background: #ffffff !important; color: #0056b3 !important; font-weight: bold; font-size: 12px; padding: 6px 14px; border-radius: 20px; box-shadow: 0px 2px 8px rgba(0,0,0,0.15); margin-top: 8px; border: 1px solid #0056b3; white-space: nowrap; text-align: center; }
     .chatbot-widget-btn:hover { transform: translateY(-3px); }
-    .chat-close-btn { background: transparent; border: none; color: white; font-size: 18px; font-weight: bold; cursor: pointer; }
+    .chat-close-btn { background: transparent; border: none; color: #ffffff !important; font-size: 18px; font-weight: bold; cursor: pointer; opacity: 1 !important; }
     .chat-input-wrapper { padding: 12px; background: #ffffff !important; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; }
-    .chat-input-container { display: flex; align-items: center; background: #fff !important; border: 1px solid #0056b3; border-radius: 30px; padding: 3px 4px 3px 15px; }
-    .chat-input-container:focus-within { border-color: #003366; }
-    #user-input { flex: 1; border: none; background: transparent !important; color: #111827 !important; font-size: 14px; outline: none; padding: 5px 0; }
-    #user-input::placeholder { color: #6b7280 !important; }
-    .send-text-btn { background: #0056b3; color: white !important; border: none; border-radius: 20px; padding: 6px 16px; font-weight: bold; cursor: pointer; }
+    .chat-input-container { display: flex; align-items: center; background: #ffffff !important; border: 2px solid #0056b3 !important; border-radius: 30px; padding: 3px 4px 3px 15px; }
+    .chat-input-container:focus-within { border-color: #003366 !important; }
+    #user-input { flex: 1; border: none; background: transparent !important; color: #000000 !important; font-size: 14px; outline: none; padding: 5px 0; opacity: 1 !important; font-weight: normal; }
+    #user-input::placeholder { color: #555555 !important; opacity: 1 !important; }
+    .send-text-btn { background: #0056b3 !important; color: #ffffff !important; border: none; border-radius: 20px; padding: 6px 16px; font-weight: bold; cursor: pointer; opacity: 1 !important; }
     
-    /* Global Reset inside Chatbot to override website default styles */
+    /* Strict Chatbot Container Reset */
+    #dwss-chat-box * {
+      box-sizing: border-box;
+      opacity: 1 !important;
+      visibility: visible !important;
+      filter: none !important;
+    }
     #chat-messages div {
       font-family: inherit;
+      color: #000000 !important;
     }
     #chat-messages a {
       color: #0056b3 !important;
       text-decoration: underline !important;
+      font-weight: bold;
     }
   `;
   document.head.appendChild(style);
@@ -40,16 +48,16 @@
     </div>
 
     <!-- Chat Box UI -->
-    <div id="dwss-chat-box" style="display: none; position: fixed; bottom: 110px; right: 20px; width: 350px; height: 440px; background: #ffffff !important; border: 1px solid #cbd5e1; border-radius: 16px; box-shadow: 0px 10px 25px rgba(0,0,0,0.2); z-index: 10001; overflow: hidden;">
-      <div style="background: linear-gradient(135deg, #0056b3, #003366); color: #ffffff !important; padding: 12px 16px; border-top-left-radius: 16px; border-top-right-radius: 16px; font-weight: bold; font-size: 15px; display: flex; justify-content: space-between; align-items: flex-start;">
+    <div id="dwss-chat-box" style="display: none; position: fixed; bottom: 110px; right: 20px; width: 350px; height: 440px; background: #ffffff !important; border: 2px solid #0056b3; border-radius: 16px; box-shadow: 0px 10px 30px rgba(0,0,0,0.3); z-index: 10001; overflow: hidden;">
+      <div style="background: linear-gradient(135deg, #0056b3, #003366) !important; color: #ffffff !important; padding: 12px 16px; border-top-left-radius: 14px; border-top-right-radius: 14px; font-weight: bold; font-size: 15px; display: flex; justify-content: space-between; align-align: flex-start;">
         <div>
           AI Assistant<br>
-          <span style="font-size: 12px; font-weight: normal; color: #e2e8f0 !important;">ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ</span>
+          <span style="font-size: 12px; font-weight: normal; color: #ffffff !important; opacity: 0.9 !important;">ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ</span>
         </div>
         <button class="chat-close-btn" id="dwss-bot-close">✖</button>
       </div>
-      <div id="chat-messages" style="height: 300px; background: #f3f4f6 !important; padding: 12px; overflow-y: auto; font-size: 14px; white-space: pre-line;">
-        <div style="background: #ffffff !important; color: #111827 !important; padding: 12px; border-radius: 10px; line-height: 1.5; margin: 0; border: 1px solid #e5e7eb; box-shadow: 0px 2px 4px rgba(0,0,0,0.05);"><b>AI Assistant:</b>\n\n<b>ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ, ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ ਦੇ Chat bot ਵਿਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।</b>\n\nਵਿਭਾਗ ਦੀਆਂ ਹੇਠ ਲਿਖੀਆਂ services ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ:\n\n1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ\n2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ\n3. ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼) ਲਈ ਅਪਲਾਈ ਕਰਨਾ\n\n<b>Press a number:</b></div>
+      <div id="chat-messages" style="height: 300px; background: #e5e7eb !important; padding: 12px; overflow-y: auto; font-size: 14px; white-space: pre-line;">
+        <div style="background: #ffffff !important; color: #000000 !important; padding: 12px; border-radius: 10px; line-height: 1.5; margin: 0; border: 1px solid #d1d5db; box-shadow: 0px 2px 4px rgba(0,0,0,0.08); font-weight: normal;"><b>AI Assistant:</b>\n\n<b>ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ, ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ ਦੇ Chat bot ਵਿਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।</b>\n\nਵਿਭਾਗ ਦੀਆਂ ਹੇਠ ਲਿਖੀਆਂ services ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ:\n\n1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ\n2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ\n3. ਘਰ ਵਿਚ ਲੈਟਰੀਨ (ਫਲੱਸ਼) ਲਈ ਅਪਲਾਈ ਕਰਨਾ\n\n<b>Press a number:</b></div>
       </div>
       <div class="chat-input-wrapper">
         <div class="chat-input-container">
@@ -95,7 +103,7 @@
     if (!msg) return;
 
     let chatBox = document.getElementById("chat-messages");
-    chatBox.innerHTML += `<div style="background: #e0f2fe !important; color: #0369a1 !important; padding: 8px 12px; border-radius: 8px; text-align: right; margin: 6px 0; border: 1px solid #bae6fd;"><b>ਤੁਸੀਂ:</b> ${input.value}</div>`;
+    chatBox.innerHTML += `<div style="background: #0056b3 !important; color: #ffffff !important; padding: 8px 12px; border-radius: 8px; text-align: right; margin: 6px 0; font-weight: bold;"><b>ਤੁਸੀਂ:</b> ${input.value}</div>`;
     input.value = "";
 
     let reply = "";
@@ -111,7 +119,7 @@
       reply = getInvalidOptionMsg();
     }
 
-    chatBox.innerHTML += `<div style="background: #ffffff !important; color: #111827 !important; padding: 10px; border-radius: 8px; margin: 6px 0; border: 1px solid #e5e7eb; box-shadow: 0px 2px 4px rgba(0,0,0,0.05);"><b>AI Assistant:</b>\n${reply}</div>`;
+    chatBox.innerHTML += `<div style="background: #ffffff !important; color: #000000 !important; padding: 10px; border-radius: 8px; margin: 6px 0; border: 1px solid #d1d5db; box-shadow: 0px 2px 4px rgba(0,0,0,0.08);"><b>AI Assistant:</b>\n${reply}</div>`;
     chatBox.scrollTop = chatBox.scrollHeight;
   }
 

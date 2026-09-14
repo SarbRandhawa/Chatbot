@@ -86,6 +86,7 @@
     if (chatBox) {
       chatBox.innerHTML = `
         <div style="background: #ffffff !important; color: #000000 !important; padding: 12px; border-radius: 10px; line-height: 1.5; margin: 0; border: 1px solid #d1d5db; box-shadow: 0px 2px 4px rgba(0,0,0,0.08); font-weight: normal;"><b>Chatbot:</b>\n<b>ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ, ਜਲ ਸਪਲਾਈ ਅਤੇ ਸੈਨੀਟੇਸ਼ਨ ਵਿਭਾਗ, ਪੰਜਾਬ ਦੇ Chatbot ਵਿਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।</b>\n
+        
         ਵਿਭਾਗ ਦੀਆਂ ਹੇਠ ਲਿਖੀਆਂ ਸੇਵਾਵਾਂ ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ:\n
         1. ਪਾਣੀ ਦਾ ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲਗਵਾਉਣਾ
         2. ਪਾਣੀ ਦੀ ਸ਼ਿਕਾਇਤ ਦਰਜ਼ ਕਰਵਾਉਣਾ
@@ -121,7 +122,7 @@
     <b>3.2 ਅਪਲਾਈ ਕਰਨ ਦਾ ਤਰੀਕਾ (1):</b> ਅਰਜੀਕਰਤਾ ਹੇਠ ਲਿਖੇ ਭਾਰਤ ਸਰਕਾਰ ਦੇ ਪੋਰਟਲ ਉਪਰ ਜਾ ਕੇ ਆਨ-ਲਾਈਨ ਅਪਲਾਈ ਕਰ ਸਕਦਾ ਹੈ\n
     <a href="https://sbm.gov.in/sbm_dbt/secure/login.aspx" target="_blank">https://sbm.gov.in/sbm_dbt/secure/login.aspx</a>\n
     <b>3.3 ਅਪਲਾਈ ਕਰਨ ਦਾ ਤਰੀਕਾ (2):</b> ਅਰਜੀਕਰਤਾ ਹੇਠ ਦਿੱਤੇ ਐਪਲੀਕੇਸ਼ਨ ਫਾਰਮ ਨੂੰ ਡਾਊਨਲੋਡ ਕਰਕੇ ਅਤੇ ਕੰਪਲੀਟ ਕਰਕੇ ਆਪਣੇ ਪਿੰਡ ਨਾਲ ਸੰਬੰਧਿਤ ਉਪ ਮੰਡਲ ਇੰਜੀਨੀਅਰ ਦੇ ਦਫ਼ਤਰ ਵਿਚ ਜਮਾਂ ਕਰਵਾ ਸਕਦਾ ਹੈ।
-    <a href="file:///D:/Chatbot/Application_Form.pdf" target="_blank" style="color: #0056b3; text-decoration: underline;">Application Form</a>\n
+    <a href="https://raw.githubusercontent.com/SarBrandhawa/Chatbot/main/Application_Form.pdf" target="_blank" style="color: #0056b3; text-decoration: underline;">Application Form</a>\n
     <b>3.4 ਵਿਸ਼ੇਸ਼ ਨੋਟ:</b> ਆਨ-ਲਾਈਨ ਅਤੇ ਆਫ-ਲਾਈਨ ਪ੍ਰਾਪਤ ਹੋਈਆਂ ਅਰਜ਼ੀਆਂ ਦੀ ਵਿਭਾਗ ਵੱਲੋਂ ਲਾਭਪਾਤਰੀ ਦੀ ਯੋਗਤਾ ਵੈਰੀਫਾਈ ਕਰਨ ਉਪਰੰਤ ਹੀ ਅਗਲੇਰੀ ਕਾਰਵਾਈ ਕੀਤੀ ਜਾਵੇਗੀ।
     ` + RETURN_FOOTER;
   }
